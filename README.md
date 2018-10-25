@@ -1,4 +1,4 @@
-# hibernate_exp
+# hibernate example
 hibernate example
 
 hibernate的一些测试用例

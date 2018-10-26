@@ -57,8 +57,8 @@ public class CtiAction {
 
 
     @GetMapping("/getByGeogIdsAndFlowcode")
-    public ServerResult getCtiByGeogIdsAndFlowcode(String flowcode, String geogids){
-        return ServerResult.success("查询成功", ctiService.findByGeogIdAndFlowcode(geogids,flowcode));
+    public ServerResult getCtiByGeogIdsAndFlowcode(String flowcode, String geogIds){
+        return ServerResult.success("查询成功", ctiService.findByGeogIdAndFlowcode(geogIds,flowcode));
     }
     @GetMapping("/getByIds")
     public ServerResult getByIds(String ids){

@@ -41,7 +41,6 @@ public class CtiServiceImpl implements CtiService {
                     for (String id:geogIds.split(",")){
                         in.value(Long.valueOf(id));
                     }
-                    //p1 = geogId.in(geogIds.split(","));
                     list.add(in);
                 }
                 Predicate p2 = null;

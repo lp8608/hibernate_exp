@@ -28,31 +28,41 @@ public class CtiAction {
     private CtiService ctiService;
 
 
-    @GetMapping("/findAll")
+
+    @GetMapping("/getAll")
     public ServerResult queryAllCti(){
         return ServerResult.success("查询成功",ctiRepository.findAll());
     }
 
 
-    @GetMapping("/findByName/{name}")
+    @GetMapping("/getByName/{name}")
     public ServerResult queryByName(@PathVariable String name){
         return ServerResult.success("查询成功",ctiRepository.findByTroubleNameLike("%"+name+"%"));
     }
 
-    @GetMapping("/findById/{id}")
+    @GetMapping("/getById/{id}")
     public ServerResult queryByName(@PathVariable Long id){
         return ServerResult.success("查询成功",ctiRepository.findById(id));
     }
 
     @GetMapping("/getChildById/{id}")
     public ServerResult findChildById(@PathVariable Long id){
-        Optional<CtiBO> ctibo = ctiRepository.findById(id);
-        if(ctibo.isPresent()){
-            return ServerResult.success("查询成功",ctibo.get().getChildCtis());
-        }else{
-            return ServerResult.error(1001,"没有找到结果！");
-        }
+        return ServerResult.success("查询成功",ctiRepository.findAllChilds(id));
     }
 
+    @GetMapping("/getByGeogId/{geogId}")
+    public ServerResult getCtisByGeogId(@PathVariable Long geogId){
+        return ServerResult.success("查询成功",ctiRepository.findByGeogId(geogId));
+    }
+
+
+    @GetMapping("/getByGeogIdsAndFlowcode")
+    public ServerResult getCtiByGeogIdsAndFlowcode(String flowcode, String geogids){
+        return ServerResult.success("查询成功", ctiService.findByGeogIdAndFlowcode(geogids,flowcode));
+    }
+    @GetMapping("/getByIds")
+    public ServerResult getByIds(String ids){
+        return ServerResult.success("查询成功", ctiService.findByIds(ids));
+    }
 
 }

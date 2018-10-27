@@ -125,12 +125,12 @@ public class CtiBO implements Serializable{
     private CtiBO parentCti;
 
 
-    @OneToMany(mappedBy = "parentCti", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL ,mappedBy = "parentCti", fetch = FetchType.LAZY)
     @JSONField(serialize = false)
     private List<CtiBO> childCtis = new ArrayList<>();
 
 
-    @OneToMany(cascade={},fetch=FetchType.LAZY,mappedBy = "ctiBO")
+    @OneToMany(cascade= CascadeType.REMOVE,fetch=FetchType.LAZY,mappedBy = "ctiBO")
     @JSONField(serialize = false)
     private List<GeogCtiBO> geogCtiBOS;
 

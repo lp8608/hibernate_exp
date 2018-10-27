@@ -10,9 +10,9 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: UTC
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    time-zone: UTC
 server:
   port: 80
 

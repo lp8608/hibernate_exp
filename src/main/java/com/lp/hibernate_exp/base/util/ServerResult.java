@@ -2,6 +2,8 @@ package com.lp.hibernate_exp.base.util;
 
 import lombok.Data;
 
+import java.util.Optional;
+
 /**
  * @author LIPENGAK
  * @Description: 类描述
@@ -32,7 +34,7 @@ public class ServerResult {
         sr.status = true;
         sr.code = 1;
         sr.message = message;
-        sr.data = data;
+        sr.data = Optional.ofNullable(data).orElse("");
         return sr;
     }
 

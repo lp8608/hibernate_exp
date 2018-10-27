@@ -84,9 +84,11 @@ public class GeogBO implements Serializable {
     })
     private GeogBO parentGeog;
 
-    @OneToMany(mappedBy = "parentGeog")
+    @OneToMany(mappedBy = "parentGeog",cascade = CascadeType.REMOVE)
     private Set<GeogBO> childGeogs = new HashSet<>();
 
+    @OneToMany(mappedBy = "geogBO",cascade = CascadeType.REMOVE)
+    private Set<GeogCtiBO> gegoCtis = new HashSet<>();
 
 
 

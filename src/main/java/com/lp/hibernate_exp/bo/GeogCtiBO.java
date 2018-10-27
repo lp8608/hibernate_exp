@@ -55,7 +55,9 @@ public class GeogCtiBO implements Serializable {
     @JoinColumn(name = "CTI_ID",insertable = false,updatable = false)
     private CtiBO ctiBO;
 
-
+    @ManyToOne(cascade = {}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "GEOG_ID",insertable = false,updatable = false)
+    private GeogBO geogBO;
 
 
 
